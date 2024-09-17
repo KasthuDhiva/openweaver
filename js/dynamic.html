@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  #color-div {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+
+  #input-text {
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 16px;
+  }
+</style>
+<title>Dynamic Background and Value Update</title>
+</head>
+<body>
+  <div id="container">
+    <div id="color-div">Color Preview</div>
+    <input type="text" id="input-text" placeholder="Enter a color">
+  </div>
+  <script>
+    $(document).ready(function() {
+      const colorDiv = $('#color-div');
+      const inputText = $('#input-text');
+
+      inputText.on('input', function() {
+        const color = inputText.val();
+        colorDiv.css('background-color', color);
+        colorDiv.text(color);
+      });
+    });
+  </script>
+</body>
+</html>

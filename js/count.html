@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  #countdown {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  #start-button {
+    padding: 10px 20px;
+    background-color: #c300ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  #message {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    margin-top: 20px;
+  }
+</style>
+<title>Countdown Timer</title>
+</head>
+<body>
+  <label for="count-input">Enter countdown time (seconds):</label>
+  <br>
+  <input type="number" id="count-input" min="1" step="1" value="10">
+  <br>
+  <button id="start-button">Start Countdown</button>
+  <br>
+  <div id="countdown">Countdown: <span id="timer">0</span> seconds</div>
+  <br>
+  <div id="message"></div>
+  <script>
+    const countdownDisplay = document.getElementById('timer');
+    const startButton = document.getElementById('start-button');
+    const message = document.getElementById('message');
+    const countInput = document.getElementById('count-input');
+
+    let countdown;
+    let seconds = 0;
+
+    startButton.addEventListener('click', () => {
+      seconds = parseInt(countInput.value, 10);
+      if (isNaN(seconds) || seconds <= 0) {
+        alert("Please enter a valid positive number for countdown.");
+        return;
+      }
+      startButton.disabled = true;
+      countdown = setInterval(updateCountdown, 1000);
+    });
+
+    function updateCountdown() {
+      if (seconds > 0) {
+        seconds--;
+        countdownDisplay.textContent = seconds;
+      } else {
+        clearInterval(countdown);
+        countdownDisplay.textContent = '0';
+        message.textContent = 'Time is up!';
+        startButton.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  #toggle-button {
+    padding: 10px 20px;
+    background-color: #ffd000;
+    color: rgb(14, 3, 3);
+    border: none;
+    cursor: pointer;
+    margin: 300px 580px 0;
+  }
+  #content {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+  }
+</style>
+<title>Toggle Content</title>
+</head>
+<body>
+  <button id="toggle-button">Click Me!!!</button>
+  <div id="content">
+    <p>You can see the content</p>
+  </div>
+  <script>
+    const toggleButton = document.getElementById('toggle-button');
+    const content = document.getElementById('content');
+
+    toggleButton.addEventListener('click', () => {
+      if (content.style.display === 'none') {
+        content.style.display = 'block';
+      } else {
+        content.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

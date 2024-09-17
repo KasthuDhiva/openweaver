@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  #content {
+    display: none;
+    margin-top: 20px;
+  }
+
+  #toggle-button {
+    padding: 10px 20px;
+    background-color: #031930;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+<title>Kandi-1-Click Kit</title>
+</head>
+<body>
+  <button id="toggle-button">Toggle Paragraph</button>
+  <p id="content">This is a hidden paragraph that can be toggled.</p>
+  <script>
+    const toggleButton = document.getElementById('toggle-button');
+    const content = document.getElementById('content');
+
+    toggleButton.addEventListener('click', () => {
+      if (content.style.display === 'none') {
+        content.style.display = 'block';
+      } else {
+        content.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
